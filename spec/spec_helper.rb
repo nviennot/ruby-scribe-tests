@@ -25,7 +25,7 @@ def scribe(desc, *args, &block)
 
     replay_block = proc do
       log_file = "./logs/#{desc.gsub(/[ \/:]/, '_').gsub(/example_at_._spec_/, '')}"
-      io = IO.popen(["replay", "-b", "20", log_file, :err => [:child, :out]])
+      io = IO.popen(["replay", "-d", "-b", "20", log_file, :err => [:child, :out]])
 
       deadlock_thread = Thread.new do
         sleep 1
