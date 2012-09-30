@@ -54,6 +54,7 @@ unless ENV['SCRIBED']
   require 'rspec/core/formatters/base_text_formatter'
   class RSpec::Core::Formatters::BaseTextFormatter
     def dump_failures; end
+    def dump_pending; end
     def dump_commands_to_rerun_failed_examples; end
   end
 end
