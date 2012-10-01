@@ -14,7 +14,7 @@ def scribe(desc, *args, &block)
     record_block = proc do
       log_file = "./logs/#{desc.gsub(/[ \/:]/, '_').gsub(/example_at_._spec_/, '')}"
       io = IO.popen([{'SCRIBED' => '1'},
-                     "record", "-fsSrg", "-o", log_file, "rspec", "--format=p", "--tty", block.source_location.join(':')],
+                     "record", "-fsSrgD", "-o", log_file, "rspec", "--format=p", "--tty", block.source_location.join(':')],
                      :err => [:child, :out])
       p = Process.wait
       if $? != 0

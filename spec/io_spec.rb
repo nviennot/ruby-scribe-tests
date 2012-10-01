@@ -27,4 +27,10 @@ describe "io" do
       File.open('/etc/passwd').each { |l| puts l }
     end
   end
+
+  context "write" do
+    scribe "puts" do
+      puts "hello"
+    end
+  end
 end
